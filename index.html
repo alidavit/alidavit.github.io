@@ -1,51 +1,186 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Amine</title>
-    <meta name="description" content="Amine">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
-    <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script>
-    <script src="https://rawgit.com/dmarcos/aframe-motion-capture/master/dist/aframe-motion-capture.min.js"></script>
-    <script src="components/intersection-spawn.js"></script>
-    <script src="components/random-color.js"></script>
-    <script src="components/snap.js"></script>
-  </head>
-  <body>
-    <a-scene avatar-recorder>
-      <a-assets>
-        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
-        <a-mixin id="voxel"
-           geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
-           material="shader: standard"
-           random-color
-           snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"
-        ></a-mixin>
-      </a-assets>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ali Davit's software engineering portfolio — practical web applications, backend systems, and infrastructure.">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>Ali Davit | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="#home">ali<span> davit.</span></a>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="navigation" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a class="nav-contact" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
 
-      <a-sky id="bg" radius="30" src="#skyTexture" theta-length="90"></a-sky>
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-text">
+        <span class="hello"><span class="hello-dot"></span> Hello, I'm a Software Engineer</span>
+        <h1>Building software that is <span>useful and dependable.</span></h1>
+        <p>I build applications from backend to frontend, prepare infrastructure, and solve real technical problems with a practical mindset.</p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#work">Explore my work</a>
+          <a class="button secondary" href="#contact">Let's connect <span>↗</span></a>
+        </div>
+        <div class="quick-facts">
+          <div><strong>End-to-end</strong><span>From idea to production</span></div>
+          <div><strong>Problem solver</strong><span>Research, test, improve</span></div>
+          <div><strong>Always learning</strong><span>Curious about new technology</span></div>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Summary of my work">
+        <div class="card-top"><span class="status"><i></i> WHAT I DO</span><span class="card-spark">✳</span></div>
+        <div class="illustration">
+          <div class="circle circle-one"></div><div class="circle circle-two"></div>
+          <div class="illustration-center"><span>code</span><b>↗</b></div>
+          <div class="float-label label-one">Backend</div>
+          <div class="float-label label-two">Infrastructure</div>
+          <div class="float-label label-three">Data & APIs</div>
+        </div>
+        <div class="card-bottom"><span>Building practical solutions</span><span>01 / 08</span></div>
+      </div>
+    </section>
 
-      <a-cylinder id="ground" src="#groundTexture" radius="32" height="0.1"></a-cylinder>
+    <section class="section about-section" id="about">
+      <div class="container two-column">
+        <div class="section-label"><span>01</span> ABOUT ME</div>
+        <div class="section-main">
+          <h2>I like understanding the problem, not just writing code.</h2>
+          <p>I work across software engineering with a broad set of responsibilities. Alongside building application features, I research technology, manage databases, handle deployment, and monitor applications in production.</p>
+          <p>For me, a good solution is not only functional. It should fit the need, remain maintainable, and be dependable in everyday use.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- Hands. -->
-      <a-entity id="teleHand"
-        hand-controls="left"
-        teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"
-      ></a-entity>
+    <section class="section container" id="work">
+      <div class="section-heading">
+        <div><div class="section-label"><span>02</span> SELECTED WORK</div><h2>A few things I have built.</h2></div>
+        <p>Projects and technical explorations that show how I approach real-world problems.</p>
+      </div>
+      <div class="filter-bar" aria-label="Filter projects">
+        <button class="filter-button active" type="button" data-filter="all">All work</button>
+        <button class="filter-button" type="button" data-filter="web">Web apps</button>
+        <button class="filter-button" type="button" data-filter="backend">Backend & data</button>
+        <button class="filter-button" type="button" data-filter="infrastructure">Infrastructure</button>
+      </div>
+      <div class="work-grid">
+        <article class="work-card" data-category="web backend" data-project="employee-tracking">
+          <div class="work-icon green">⌁</div>
+          <span class="work-type">WEB APP · REAL-TIME DATA</span>
+          <h3>Employee Tracking</h3>
+          <p>A real-time employee movement tracking platform using BLE, with a Go backend and Svelte interface.</p>
+          <div class="tags"><span>Go</span><span>Fiber</span><span>PostgreSQL</span><span>Svelte</span></div>
+        </article>
+        <article class="work-card" data-category="web backend infrastructure" data-project="uniguardz">
+          <div class="work-icon blue">▤</div>
+          <span class="work-type">WEB APP · SECURITY</span>
+          <h3>UniGuardZ</h3>
+          <p>Continued development of a security-focused application with a NestJS and React stack, deployed on Google Cloud Run.</p>
+          <div class="tags"><span>NestJS</span><span>React</span><span>Cloud Run</span><span>Firebase</span></div>
+        </article>
+        <article class="work-card" data-category="web backend infrastructure" data-project="oee-dashboard">
+          <div class="work-icon orange">↗</div>
+          <span class="work-type">WEB APP · OPERATIONS</span>
+          <h3>OEE Dashboard Web</h3>
+          <p>A Laravel and PostgreSQL dashboard for monitoring operational efficiency, with real-time data delivered through MQTT.</p>
+          <div class="tags"><span>Laravel</span><span>PostgreSQL</span><span>MQTT</span><span>Docker</span></div>
+        </article>
+        <article class="work-card" data-category="web backend infrastructure" data-project="hcform">
+          <div class="work-icon purple">◉</div>
+          <span class="work-type">WEB APP · INTERNAL SYSTEM</span>
+          <h3>HCForm Web</h3>
+          <p>An HR and GA process digitization platform built with CodeIgniter 3 and MySQL, deployed on Ubuntu with Docker and Nginx.</p>
+          <div class="tags"><span>CodeIgniter 3</span><span>MySQL</span><span>Docker</span><span>Nginx</span></div>
+        </article>
+        <article class="work-card" data-category="web backend" data-project="cashflow">
+          <div class="work-icon purple">◉</div>
+          <span class="work-type">WEB APP · FINANCE</span>
+          <h3>Simple CashFlow System</h3>
+          <p>A CodeIgniter 4 application for recording incoming cash, outgoing cash, corrections, and currency conversion.</p>
+          <div class="tags"><span>CodeIgniter 4</span><span>PHP</span><span>MySQL</span></div>
+        </article>
+        <article class="work-card" data-category="web backend" data-project="payroll">
+          <div class="work-icon orange">↗</div>
+          <span class="work-type">WEB APP · HR OPERATIONS</span>
+          <h3>Doorlock and Payroll</h3>
+          <p>A payroll reporting system generated from RFID attendance data, built with Laravel, Bootstrap, and jQuery.</p>
+          <div class="tags"><span>Laravel</span><span>Bootstrap</span><span>jQuery</span></div>
+        </article>
+        <article class="work-card" data-category="web infrastructure" data-project="ptt-management">
+          <div class="work-icon blue">▤</div>
+          <span class="work-type">WEB APP · MANAGEMENT</span>
+          <h3>PTT Management System</h3>
+          <p>A user and company management system with Laravel and Mumble push-to-talk, deployed to DigitalOcean droplets.</p>
+          <div class="tags"><span>Laravel</span><span>Mumble</span><span>DigitalOcean</span></div>
+        </article>
+        <article class="work-card" data-category="backend infrastructure" data-project="residual-oxygen">
+          <div class="work-icon green">⌁</div>
+          <span class="work-type">DATA PLATFORM · IOT</span>
+          <h3>Residual Oxygen Online</h3>
+          <p>A monitoring dashboard that collects residual oxygen data over MQTT and visualizes it with Node-RED and Highcharts.</p>
+          <div class="tags"><span>MQTT</span><span>Node-RED</span><span>Laravel</span><span>Highcharts</span></div>
+        </article>
+      </div>
+    </section>
 
-      <a-entity id="blockHand"
-        hand-controls="right"
-        controller-cursor
-        intersection-spawn="event: click; mixin: voxel"
-      ></a-entity>
+    <section class="section skills-section" id="skills">
+      <div class="container two-column">
+        <div>
+          <div class="section-label"><span>03</span> SKILLS</div>
+          <h2>Technologies I work with.</h2>
+          <p class="skills-intro">I choose technology based on the project needs, infrastructure constraints, and long-term maintainability.</p>
+        </div>
+        <div class="skill-groups">
+          <div class="skill-row"><h3>Backend</h3><p>Go, Gin, Fiber, Laravel, CodeIgniter, Express.js, NestJS</p></div>
+          <div class="skill-row"><h3>Frontend</h3><p>Svelte, React, Vue, Blade</p></div>
+          <div class="skill-row"><h3>Database & Messaging</h3><p>PostgreSQL, TimescaleDB, MySQL, NATS JetStream</p></div>
+          <div class="skill-row"><h3>Infrastructure & DevOps</h3><p>Linux VPS, Docker, GitHub Actions, Woodpecker CI</p></div>
+          <div class="skill-row"><h3>Monitoring</h3><p>Grafana, Loki, Alloy, application logging</p></div>
+          <div class="skill-row"><h3>Other interests</h3><p>R&D, device protocol integration, Zig, AI-assisted development</p></div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Camera. -->
-      <a-camera>
-        <a-cursor
-          intersection-spawn="event: click; mixin: voxel"
-        ></a-cursor>
-      </a-camera>
-    </a-scene>
-  </body>
+    <section class="contact-section container" id="contact">
+      <div class="contact-box">
+        <div class="section-label"><span>04</span> CONTACT</div>
+        <h2>Have an idea or a technical problem to discuss?</h2>
+        <p>I’m open to exchanging ideas, sharing experience, and exploring opportunities to collaborate.</p>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:alidavit85@gmail.com">Email me ↗</a>
+          <a class="social-link" href="https://github.com/alidavit" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="social-link" href="tel:+6285156176530">+62 851 5617 6530 ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <a class="logo" href="#home">ali<span> davit.</span></a>
+    <p>© <span id="year"></span> alidavit</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close project details">×</button>
+    <span class="work-type" id="dialog-type">PROJECT DETAILS</span>
+    <h2 id="dialog-title">Project</h2>
+    <p id="dialog-description"></p>
+    <div class="tags" id="dialog-tags"></div>
+  </dialog>
+</body>
 </html>
